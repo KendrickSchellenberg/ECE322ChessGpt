@@ -1,8 +1,8 @@
 import unittest
 from unittest.mock import patch, Mock
-from ...enums import Player
-from ...piece import Piece
-from ...rook import Rook
+from enums import Player
+from piece import Piece
+from rook import Rook
 
 
 class TestRook(unittest.TestCase):
