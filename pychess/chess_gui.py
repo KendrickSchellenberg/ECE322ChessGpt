@@ -20,20 +20,22 @@ SQ_SIZE = HEIGHT // DIMENSION  # the size of each of the squares in the board
 MAX_FPS = 15  # FPS for animations
 IMAGES = {}  # images for the chess pieces
 colors = [py.Color("white"), py.Color("gray")]
+image_path = r"C:\Users\sirma\Downloads\ENGG\ECE 322 - Software Testing and Maintenance\Group Project\python-chess\pychess" + '\\'
 
 py.init()
 SCREEN = py.display.set_mode((WIDTH, HEIGHT))
-BACKGROUND = py.image.load("images/menu/Background.png")
+BACKGROUND = py.image.load(image_path+"images/menu/Background.png")
+
 
 def get_font(size):
-    return py.font.Font("images/menu/font.ttf", size)
+    return py.font.Font(image_path+"/images/menu/font.ttf", size)
 
 def load_images():
     '''
     Load images for the chess pieces
     '''
     for p in Player.PIECES:
-        IMAGES[p] = py.transform.scale(py.image.load("images/" + p + ".png"), (SQ_SIZE, SQ_SIZE))
+        IMAGES[p] = py.transform.scale(py.image.load(image_path+"images/" + p + ".png"), (SQ_SIZE, SQ_SIZE))
 
 
 def draw_game_state(screen, game_state, valid_moves, square_selected):
@@ -267,9 +269,9 @@ def menu():
         CREDIT_RECT = MENU_TEXT.get_rect(center=(CENTER + 7, 100))
         SCREEN.blit(CREDIT_TEXT, CREDIT_RECT)
 
-        SINGLE_PLAYER_BUTTON = Button(image=py.image.load("images/menu/PlayRect.png"), pos=(CENTER, 160), text_input="Single Player", font=get_font(25), base_color="#d7fcd4", hovering_color="White")
-        MULTI_PLAYER_BUTTON = Button(image=py.image.load("images/menu/PlayRect.png"), pos=(CENTER, 285), text_input="Multi Player", font=get_font(25), base_color="#d7fcd4", hovering_color="White")
-        QUIT_BUTTON = Button(image=py.image.load("images/menu/PlayRect.png"), pos=(CENTER, 410), text_input="Quit", font=get_font(25), base_color="#d7fcd4", hovering_color="White")
+        SINGLE_PLAYER_BUTTON = Button(image=py.image.load(image_path+"images/menu/PlayRect.png"), pos=(CENTER, 160), text_input="Single Player", font=get_font(25), base_color="#d7fcd4", hovering_color="White")
+        MULTI_PLAYER_BUTTON = Button(image=py.image.load(image_path+"images/menu/PlayRect.png"), pos=(CENTER, 285), text_input="Multi Player", font=get_font(25), base_color="#d7fcd4", hovering_color="White")
+        QUIT_BUTTON = Button(image=py.image.load(image_path+"images/menu/PlayRect.png"), pos=(CENTER, 410), text_input="Quit", font=get_font(25), base_color="#d7fcd4", hovering_color="White")
 
         for button in [SINGLE_PLAYER_BUTTON, MULTI_PLAYER_BUTTON, QUIT_BUTTON]:
             button.changeColor(MENU_MOUSE_POS)
